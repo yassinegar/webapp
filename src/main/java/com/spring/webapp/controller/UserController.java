@@ -8,6 +8,7 @@ import javax.websocket.server.PathParam;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.spring.webapp.exceptions.UserServiceException;
 import com.spring.webapp.model.request.UserDetailsRequestModel;
 import com.spring.webapp.model.response.ErrorMessages;
+import com.spring.webapp.model.response.OperationStatusModel;
+import com.spring.webapp.model.response.RequestOperationNamed;
+import com.spring.webapp.model.response.RequestOperationStatus;
 import com.spring.webapp.model.response.UserRest;
 import com.spring.webapp.service.UserService;
 import com.spring.webapp.shared.dto.UserDto;
@@ -108,7 +112,22 @@ public class UserController {
 		return returnList;
 	}
 	
-	
+	@DeleteMapping(path="/{idUser}",
+			produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+	public OperationStatusModel deleteUser(@PathVariable String idUser)
+	{
+		OperationStatusModel returnValue = new OperationStatusModel();
+		
+		returnValue.setOperationName(RequestOperationNamed.DELETE.name());
+		
+		userService.deleteUser(idUser);
+		
+		
+		returnValue.setOperationResult(RequestOperationStatus.SUCESS.name());
+		
+		return returnValue;
+		
+	}
 	
 	
 	

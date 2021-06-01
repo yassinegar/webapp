@@ -6,16 +6,18 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.spring.webapp.shared.dto.UserDto;
 
-public interface UserService extends UserDetailsService{
+public interface UserService extends UserDetailsService {
 
 	UserDto createUser(UserDto user);
-	
+
 	UserDto getUser(String email);
 
 	UserDto getUserByUserId(String id);
 
 	UserDto updateUser(String id, UserDto userDto);
-	
-	List<UserDto> getUsers(int page,int limit);
+
+	List<UserDto> getUsers(int page, int limit);
+
+	void deleteUser(String userId);
 
 }
