@@ -1,6 +1,7 @@
 package com.spring.webapp.shared.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class UserDto implements Serializable{
 
@@ -22,6 +23,9 @@ public class UserDto implements Serializable{
 	private String emailVerificationToken;
 	
 	private Boolean emailVerificationStatus = false;
+	
+	
+	private List<AdressDto> adresses;
 
 	public String getUserId() {
 		return userId;
@@ -85,6 +89,14 @@ public class UserDto implements Serializable{
 
 	public void setEmailVerificationStatus(Boolean emailVerificationStatus) {
 		this.emailVerificationStatus = emailVerificationStatus;
+	}
+
+	public List<AdressDto> getAdresses() {
+		return adresses;
+	}
+
+	public void setAdresses(List<AdressDto> adresses) {
+		this.adresses = adresses;
 	}
 	
 	

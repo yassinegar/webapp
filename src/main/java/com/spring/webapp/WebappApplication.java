@@ -2,13 +2,20 @@ package com.spring.webapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.spring.webapp.security.AppProperties;
 
 @SpringBootApplication
-public class WebappApplication {
+public class WebappApplication extends SpringBootServletInitializer{
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(WebappApplication.class);
+	}
+	
 
 	public static void main(String[] args) {
 		SpringApplication.run(WebappApplication.class, args);

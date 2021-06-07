@@ -1,5 +1,7 @@
 package com.spring.webapp.model.request;
 
+import java.util.List;
+
 public class UserDetailsRequestModel {
 
 	
@@ -10,7 +12,17 @@ public class UserDetailsRequestModel {
 	private String email;
 	
 	private String password;
+	
+	private List<AdressRequestModel> adresses;
 
+
+	public List<AdressRequestModel> getAdresses() {
+		return adresses;
+	}
+
+	public void setAdresses(List<AdressRequestModel> adresses) {
+		this.adresses = adresses;
+	}
 
 	public String getFirstName() {
 		return firstName;

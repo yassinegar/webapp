@@ -1,5 +1,7 @@
 package com.spring.webapp.model.response;
 
+import java.util.List;
+
 public class UserRest {
 
 	private String userId;
@@ -9,6 +11,8 @@ public class UserRest {
 	private String lastName;
 
 	private String email;
+	
+	private List<AddressesRest> adresses;
 
 	public String getUserId() {
 		return userId;
@@ -41,5 +45,14 @@ public class UserRest {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public List<AddressesRest> getAdresses() {
+		return adresses;
+	}
+
+	public void setAdresses(List<AddressesRest> adresses) {
+		this.adresses = adresses;
+	}
+
 
 }
