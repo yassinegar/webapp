@@ -11,6 +11,7 @@ import org.modelmapper.TypeToken;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,6 +37,7 @@ import com.spring.webapp.shared.dto.UserDto;
 
 @RestController
 @RequestMapping("users")
+//@CrossOrigin(origins={"http://localhost:8080","http://localhost:8082"})
 public class UserController {
 
 	@Autowired
@@ -90,7 +92,9 @@ public class UserController {
 
 	}
 
-	@GetMapping(produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+	
+	@GetMapping(produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })	
+//	@CrossOrigin(origins={"http://localhost:8080","http://localhost:8082"})
 	public List<UserRest> getUsers(@RequestParam(value = "page", defaultValue = "0") int page,
 			@RequestParam(value = "limit", defaultValue = "25") int limit) {
 		List<UserRest> returnList = new ArrayList<>();
